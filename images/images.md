@@ -5,3 +5,6 @@ https://media.giphy.com/media/o2XbUUi1CXKTe/giphy.gif
 
 UI GIS Day circle:
 https://insideidaho.org/gis-day.html
+
+Lightning slow motion.gif:
+https://commons.wikimedia.org/wiki/File:Lightning_slow_motion.gif
