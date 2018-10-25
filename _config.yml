@@ -1,0 +1,51 @@
+# Jekyll countdown-timer evanwill
+# https://github.com/evanwill/countdown-timer
+
+# Site settings
+# title appears in the header
+title: countdown-timer
+# description and keywords for meta tags
+description: "A basic Jekyll template designed to create a customizable timer on GitHub Pages"
+keywords: "timer, GitHub, lightning talks, gh-pages, jekyll"
+
+# author settings for cc-by, appears in the footer
+author: evan will
+pub_year: 2018
+github_username: evanwill
+
+# Timer settings
+# Start text displays on index, should be short / one word
+start: Ready?
+start-background: black
+start-text: white
+# add file name of gif/img from the images directory
+start-image: earth.gif
+# length of the timer (in minutes)
+full: 5
+full-background: green
+full-text: white
+# change to caution color (in minutes)
+caution: 2
+caution-background: yellow
+caution-text: black
+# change to warning color (in minutes)
+warning: 1
+warning-background: "#ff1a40"
+warning-text: black
+# final color
+done-background: red
+done-text: white
+
+# Buzzer settings
+# add file name of an mp3 from the sounds directory
+sound: foghorn-daniel_simon.mp3
+# add a second sound (leave blank for none)
+applause: Audience_Applause-Matthiew11-1206899159.mp3
+
+# site urls
+# add the url for the domain,
+# on gh-pages follow the pattern: https://username.github.io 
+url: https://evanwill.github.io
+# add subsection of the domain,
+# on gh-pages this is a / followed by the name of the repository
+baseurl: /countdown-timer

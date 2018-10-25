@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+
+  {% include head.html %}
+
+  <body {% if page.timer %}class="start"{% endif %}>
+
+    {{ content }}
+
+  </body>
+
+</html>

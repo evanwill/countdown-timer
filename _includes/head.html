@@ -1,0 +1,85 @@
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<meta name="keywords" content="{{ site.keywords }}">
+<meta name="author" content="{{ site.author }}">
+
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}" />
+<meta property="og:description" content="{{ site.description }}" />
+<meta property="og:type" content="article" />
+<meta property="article:author" content="{{ site.author }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:locale" content="en_US" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}","author":{"@type":"Person","name":"{{ site.author }}"},"description":"{{ site.description }}","url":"{{ page.url | absolute_url }}"}</script>
+
+<style>
+    @font-face {
+        font-family: 'Droid Sans Mono';
+        src:  url('{{ "/css/fonts/DroidSansMono-webfont.woff" | relative_url }}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body { font-family: "Droid Sans Mono", Helvetica, Arial, sans-serif; }
+    {% if page.timer %}
+    body  {
+        text-align: center;
+        font-weight: bold;
+        margin: 4% auto;
+    }
+    body.start {
+        font-size: 16vw;
+        color: {{ site.start-text | default: "white" }};
+        background: {{ site.start-background | default: "black" }} url("{{ site.start-image | prepend: '/images/' | relative_url }}") no-repeat fixed center; 
+    }
+    #countdown {
+        cursor: pointer;
+    }
+    #about {
+        font-size: 18px;
+        position: absolute;
+        bottom: 5%; right: 5%;
+    }
+    body.go {
+        font-size: 35vw;
+        color: {{ site.full-text | default: "white" }};
+        background: {{ site.full-background | default: "green" }};
+    }
+    body.caution {
+        font-size: 35vw;
+        color: {{ site.caution-text | default: "black" }};
+        background: {{ site.caution-background | default: "yellow" }};
+    }
+    body.warning {
+        font-size: 35vw;
+        color: {{ site.warning-text | default: "black" }};
+        background: {{ site.warning-background | default: "#ff1a40"}};
+    }
+    body.deadline {
+        font-size: 35vw;
+        color: {{ site.done-text | default: "white" }};
+        background: {{ site.done-background | default: "red" }}; 
+    }
+    {%- endif -%}
+    {% if page.layout == "about" %}
+    body {
+        background: black;
+    }
+    .page {
+        background: #cdcdcd;
+        border-radius: 5px;
+        padding: 20px 25px;
+        margin: 5% 35% 5% 5%;
+        font-size: 18px;
+    }
+    #gis-circle {
+        width: 50%;
+    }
+    {%- endif -%}
+  </style>
+
+</head>

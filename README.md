@@ -11,7 +11,7 @@ I use it on Firefox, full screen mode, on a touch screen laptop, folded in stand
 
 Click "Ready" to start; at the end click "0:00" to reset. 
 
-Defaut is five minutes with a caution color at two minutes and warning color at one minute. 
+Default is five minutes with a caution color at two minutes and warning color at one minute. 
 
 To customize the time, add "#" with time,warning (for example, one minute with warning at 30 sec: lightning-time/index.html#60,30).
 

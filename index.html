@@ -1,0 +1,94 @@
+---
+title: Countdown Timer 
+timer: true
+layout: default
+---
+
+<div id="countdown">{{ site.start }}</div>
+
+<div id="about"><a href="{{ '/about.html' | relative_url }}">About</a></div>
+
+<!-- load the desired buzzer sounds -->
+<audio id="sound" src="{{ site.sound | default: 'foghorn-daniel_simon.mp3' | prepend: '/sounds/' | relative_url }}" preload="auto"></audio>
+{% if site.applause %}<audio id="applause" src="{{ site.applause | prepend: '/sounds/' | relative_url }}" preload="auto"></audio>{% endif %}
+
+<script>
+    /* based on https://github.com/apg/timer and https://github.com/mithro/lightningtimer */
+    // Default settings: 5 minutes, caution at 2 minutes, warning at 1 minute
+    var count = {{ site.full | default: 5 }} * 60;
+    var caution = {{ site.caution | default: 2 }} * 60;
+    var warning = {{ site.warning | default: 1 }} * 60;
+    var buzzer = document.getElementById('sound');
+    {% if site.applause %}var clap = document.getElementById('applause');{% endif %}
+    
+    function settime() {
+        // Can optionally set count and warning in the url
+        // e.g. https://evanwill.github.io/lightning-time/#30,15 = 30 seconds, warning at 15
+        //      https://evanwill.github.io/lightning-time/#300 = 5 minutes, no warning
+        var match = /(\d+),?(\d+)?/.exec(location.hash);
+        if (match && match[1]) {
+            count = parseInt(match[1], 10);
+            caution = -1; // Disable caution
+        }
+        if (match && match[2]) {
+            warning = parseInt(match[2], 10);
+        }
+        if (match && !match[2]) {
+            warning = -1; // Disable warning
+        }
+    }
+    
+    if ("onhashchange" in window) {
+        window.onhashchange = settime;
+    }
+    
+    window.onload = function() {
+        settime();
+    
+        document.getElementById('countdown').onclick = function() {
+            this.onclick = null;
+            countdown();
+        }
+    };
+    
+    function countdown() {
+        if (count > 0) {
+            document.body.className = 'go';
+            document.getElementById('about').style.display = 'none';
+            var obj = document.getElementById("countdown");
+            obj.replaceChild(
+                document.createTextNode(count.toMinutesAndSeconds()),
+                obj.firstChild
+            );
+            // document.title = count.toMinutesAndSeconds(); 
+            count--;
+            if (count < caution ) {
+                document.body.className = 'caution';
+            }
+            if (count < warning) {
+                document.body.className = 'warning';
+            }
+            window.setTimeout(countdown, 1000);
+        } else {
+            document.body.className = 'deadline';
+            var obj = document.getElementById("countdown");
+            obj.replaceChild(
+                document.createTextNode(count.toMinutesAndSeconds()),
+                obj.firstChild
+            );
+            // document.title = count.toMinutesAndSeconds();
+            buzzer.play();
+            {% if site.applause %}clap.play();{% endif %}
+            obj.onclick = function() {
+                location.reload();
+            };
+        }
+    }
+    Number.prototype.toMinutesAndSeconds = function() {
+        // convert numeric seconds input to minutes and seconds string output
+        var nn, curTime = new Date(this * 1000);
+        return nn = curTime.getMinutes() + ":" + (
+            ((nn = curTime.getSeconds()) < 10) ? "0" + nn : nn
+        );
+    }
+</script>
