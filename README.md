@@ -1,13 +1,25 @@
 # countdown-timer
 
 A basic Jekyll template designed to create a customizable timer on GitHub Pages, based on my earlier [lightning-time](https://github.com/evanwill/lightning-time) site.
-Generates a super simple web page based timer with a buzzer.
+Generates a super simple web page based timer with a buzzer, [demo](https://evanwill.github.io/countdown-timer/).
 
 Only works in modern browsers. 
 
 I use it on Firefox, full screen mode, on a touch screen laptop, folded in stand mode, making a lovely timer for an event.
 
-**Use:**
+## Customize
+
+Fork/import or otherwise copy the repo (make sure your site urls match your repository). 
+
+Edit the `_config.yml` file with your info. 
+All the timer customization options are in the `_config.yml`.
+Add any new backgrounds to `images` folder, new mp3 sounds to the `sounds` folder.
+
+Edit the about if desired.
+
+Active GitHub Pages in your repository settings. 
+
+## Use
 
 Click "Ready" to start; at the end click "0:00" to reset. 
 
