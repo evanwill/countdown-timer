@@ -35,6 +35,7 @@
         font-size: 16vw;
         color: {{ site.start-text | default: "white" }};
         background: {{ site.start-background | default: "black" }} url("{{ site.start-image | prepend: '/images/' | relative_url }}") no-repeat fixed center; 
+        background-size: auto 100%;
     }
     #countdown {
         cursor: pointer;
