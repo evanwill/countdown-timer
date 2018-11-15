@@ -9,11 +9,11 @@ I use it on Firefox, full screen mode, on a touch screen laptop, folded in stand
 
 ## Customize
 
-Fork/import or otherwise copy the repo (make sure your site urls match your repository). 
+Fork/import or otherwise copy the repo. 
 
 Edit the `_config.yml` file with your info. 
 All the timer customization options are in the `_config.yml`.
-Add any new backgrounds to `images` folder, new mp3 sounds to the `sounds` folder.
+Add any new backgrounds to `images` folder and new mp3 sounds to the `sounds` folder.
 
 Edit the about if desired.
 

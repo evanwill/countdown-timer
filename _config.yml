@@ -21,11 +21,11 @@ start-text: white
 # add file name of gif/img from the images directory
 start-image: earth.gif
 # length of the timer (in minutes)
-full: 5
+full: 10
 full-background: green
 full-text: white
 # change to caution color (in minutes)
-caution: 2
+caution: 3
 caution-background: yellow
 caution-text: black
 # change to warning color (in minutes)
