@@ -6,7 +6,7 @@ layout: default
 
 <div id="countdown">{{ site.start }}</div>
 
-<div id="about"><a href="{{ '/about.html' | relative_url }}">About</a></div>
+<div id="about"><a href="{{ '/about.html' | relative_url }}">about countdown-timer</a></div>
 
 <!-- load the desired buzzer sounds -->
 <audio id="sound" src="{{ site.sound | default: 'foghorn-daniel_simon.mp3' | prepend: '/sounds/' | relative_url }}" preload="auto"></audio>
