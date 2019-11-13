@@ -44,11 +44,17 @@ layout: default
     
     window.onload = function() {
         settime();
-    
         document.getElementById('countdown').onclick = function() {
             this.onclick = null;
             countdown();
         }
+        document.addEventListener("keyup", function(event) {
+            // start if press Enter or Space
+            if (event.keyCode === 13 || 32 ) {
+                event.preventDefault();
+                countdown();
+            }
+        }); 
     };
     
     function countdown() {
